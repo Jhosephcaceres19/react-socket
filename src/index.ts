@@ -25,7 +25,7 @@ const server = Bun.serve({
     }, // a message is received
     open(ws) {
       console.log("Cliente conectado");
-      ws.subscribe('Genral-Chat')
+      ws.subscribe('General-Chat');
     }, // a socket is opened
     close(ws, code, message) {
       console.log("Cliente desconectado");
