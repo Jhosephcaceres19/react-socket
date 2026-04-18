@@ -22,6 +22,8 @@ const server = Bun.serve({
       :message.toString();
       //ws.send(text.toUpperCase())
       ws.publish('General-Chat', text)
+      //por lado de backend que el usuario manda el mensaje pero se envia a si mismo tambien
+      ws.send(text);
     }, // a message is received
     open(ws) {
       console.log("Cliente conectado");

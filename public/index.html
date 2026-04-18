@@ -76,6 +76,8 @@
         if (!messageInput.value && messageInput.value.length === 0)return;
 
         socket.send(messageInput.value);
+        //recibir mensaje de lo que envie como el usuario que envia emnsaje
+        //showMessage(messageInput.value)
         messageInput.value = '';
       })
 
