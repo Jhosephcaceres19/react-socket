@@ -20,10 +20,12 @@ const server = Bun.serve({
       const text = typeof message === "string"
       ? message
       :message.toString();
-      ws.send(text.toUpperCase())
+      //ws.send(text.toUpperCase())
+      ws.publish('General-Chat', text)
     }, // a message is received
     open(ws) {
       console.log("Cliente conectado");
+      ws.subscribe('Genral-Chat')
     }, // a socket is opened
     close(ws, code, message) {
       console.log("Cliente desconectado");
