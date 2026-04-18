@@ -48,6 +48,11 @@
         socket.onerror = (event) => {
           console.log({ error: event });
         };
+        socket.onmessage = (event) =>{
+          // console.log(event.data);
+          showMessage(event.data)
+          
+        }
 
         return socket;
       };
@@ -65,6 +70,22 @@
         if (socket.readyState === WebSocket.OPEN) return;
         socket = createWebSocket();
       });
+
+      messageForm.addEventListener("submit", (event) =>{
+        event.preventDefault();
+        if (!messageInput.value && messageInput.value.length === 0)return;
+
+        socket.send(messageInput.value);
+        messageInput.value = '';
+      })
+
+
+      const showMessage = (message) =>{
+        const li = document.createElement('li');
+        li.textContent = message;
+
+        messagesContainer.appendChild(li);
+      }
 
       console.log({
         status,
