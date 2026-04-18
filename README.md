@@ -1,4 +1,4 @@
-# 01-websockets-bases
+# Websockets-Bases
 
 To install dependencies:
 
